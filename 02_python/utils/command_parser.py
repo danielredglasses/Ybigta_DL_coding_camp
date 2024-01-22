@@ -79,6 +79,7 @@ class CommandParser:
             print('positional_args')
             for positional_arg in positional_args:
                 print('  ' + positional_arg)
+            print()
 
         return {
             'command_name': command_name,

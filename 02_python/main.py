@@ -15,7 +15,7 @@ args = parser.parse_args()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-handler = logging.FileHandler(args.log_path + ".log")
+handler = logging.FileHandler(str(args.log_path) + ".log")
 handler.setLevel(logging.INFO)
 
 format='%(asctime)s:%(levelname)s:%(name)s:%(message)s'

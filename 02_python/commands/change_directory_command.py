@@ -43,5 +43,6 @@ class ChangeDirectoryCommand(BaseCommand):
         # Change working directory
         try:
             os.chdir(os.path.join(self.path, self.destination_dir))
+            BaseCommand.update_current_path(os.getcwd())
         except FileNotFoundError as e:
             print(f"cd: cannot change directory to '{self.destination_dir}': {e}")

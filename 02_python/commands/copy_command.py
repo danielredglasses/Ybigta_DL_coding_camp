@@ -51,21 +51,23 @@ class CopyCommand(BaseCommand):
 
         # Check if source_dir is valid
         if not os.path.exists(self.source_dir):
-            raise FileNotFoundError(f"mv: {self.source_dir}: No such file or directory")
+            print(f"[Errno 2] No such file or directory: '{self.source_dir}'")
+            return
         if not os.path.exists(self.destination_dir):
-            raise FileNotFoundError(f"mv: {self.destination_dir}: No such file or directory")
+            print(f"[Errno 2] No such file or directory: '{self.destination_dir}'")
+            return
         
         # Copy file
         if self.file_exists(self.destination_dir, self.file_name):
             target_path = os.path.join(self.destination_dir, self.file_name)
             if prompt_overwrite:
-                overwrite = input(f"cp: overwrite '{target_path}'? (y/n)")
+                overwrite = input(f"cp: overwrite '{target_path}'? (y/n) ")
                 while True:
                     if overwrite == 'y' or overwrite == 'n':
                         break
                     else:
                         print('Enter y or n')
-                        overwrite = input(f"cp: overwrite '{target_path}'? (y/n)")
+                        overwrite = input(f"cp: overwrite '{target_path}'? (y/n) ")
 
                 if overwrite == 'y':
                     os.remove(os.path.join(self.path, target_path))

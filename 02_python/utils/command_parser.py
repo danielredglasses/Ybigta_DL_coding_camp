@@ -12,6 +12,8 @@ f"Options: {options}"
 f"Positional args: {positional_args}"
 """
 
+logger = logging.getLogger(__name__)
+
 class CommandParser:
     """
     A class for parsing commands and extracting command name, options, and arguments.
@@ -58,12 +60,9 @@ class CommandParser:
             else:
                 positional_args.append(command_list[i])
 
-        logger = logging.getLogger(__name__)
-        logger.setLevel(logging.INFO)
-
-        logging.info(f"Command Name: {command_name}")
-        logging.info(f"Options: {options}")
-        logging.info(f"Positional args: {positional_args}")
+        logger.info(f"Command Name: {command_name}")
+        logger.info(f"Options: {options}")
+        logger.info(f"Positional args: {positional_args}")
 
         # Print command_name, options, positional_args
         if self.verbose:

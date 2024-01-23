@@ -32,6 +32,11 @@ class ListCommand(BaseCommand):
             -h: Display file sizes in human-readable format
             -t: Sort files by modified time
         """
+        # Check if target_path is valid
+        if not os.path.exists(self.target_path):
+            print(f"[Errno 2] No such file or directory: '{self.target_path}'")
+            return
+
         # Handle options like -l, -a, etc.
         # List the current directory or specified path
         human_readable = '-h' in self.options

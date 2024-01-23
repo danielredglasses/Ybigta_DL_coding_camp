@@ -34,4 +34,4 @@ class PrintWorkingDirectoryCommand(BaseCommand):
         TODO 8-2: Implement the functionality to print the current working directory.
         No need to handle exceptions.
         """
-        print(os.getcwd())
+        print(self.current_path)
